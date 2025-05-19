@@ -12,3 +12,6 @@ java는 17버전을 설치함.
 - char부분이 아직 헷갈림
 
 - 0519 다차원 배열 어렵다....
+
+  
+![슬라이드2](https://github.com/user-attachments/assets/6eb33e12-192e-4c71-83a0-d1644ec0be87)
