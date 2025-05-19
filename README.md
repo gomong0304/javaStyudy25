@@ -13,5 +13,4 @@ java는 17버전을 설치함.
 
 - 0519 다차원 배열 어렵다....
 
-  
-![슬라이드2](https://github.com/user-attachments/assets/6eb33e12-192e-4c71-83a0-d1644ec0be87)
+  ![슬라이드2](https://github.com/user-attachments/assets/8a5763f8-28b7-4154-a7c5-10f4dfdde030)
