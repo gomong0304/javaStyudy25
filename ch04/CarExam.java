@@ -91,7 +91,7 @@ public class CarExam {
 				System.out.println(CarDriveMode.STOP + "상태로 전환합니다.");
 				break;	
 			
-			case "5" :
+			case "9" :
 				System.out.println("프로그램을 종료합니다.");
 				System.out.println(CarDriveMode.PARK + "상태로 전환합니다.");
 				run = false;
@@ -127,22 +127,38 @@ public class CarExam {
 			case 1 :
 				System.out.println("속도를 올립니다.");
 				speed+=50;
+				oil-=10;
 				if(speed >= maxSpeed) {
 					speed=maxSpeed;
-				}
+				}// 속도 올리는 if문 종료
+				if(oil == 0) {
+					System.out.println();
+					System.out.println("앗!!!!!!! oil이 없습니다. 주유해주세요.");
+					System.out.println("차량이 " + CarDriveMode.STOP + " 모드로 전환됩니다.");
+					break;
+					}// oil이 없을때 if문 종료
 				System.out.println("현재 속도 : " + speed + "km/h");
+				System.out.println("남은 oil의 양 : " + oil + "L");
 				break;
 			case 2 :
 				System.out.println("속도를 감속합니다.");
-				speed-=20;
+				speed-=30;
+				oil-=10;
 				if(speed <= minSpeed) {
 					speed=minSpeed;
 				}
+				if(oil == 0) {
+					System.out.println();
+					System.out.println("앗!!!!!!! oil이 없습니다. 주유해주세요.");
+					System.out.println("차량이 " + CarDriveMode.STOP + " 모드로 전환됩니다.");
+					break;
+					}// oil이 없을때 if문 종료
 				System.out.println("현재 속도 : " + speed + "km/h");
+				System.out.println("남은 oil의 양 : " + oil + "L");
 				break;	
 			case 3 :
 				System.out.println("차량을 정지합니다.");
-				System.out.println(CarDriveMode.STOP + "상태로 전환합니다.");
+				System.out.println(CarDriveMode.PARK + "상태로 전환합니다.");
 				speed=minSpeed;
 				break;
 			default : 
@@ -155,9 +171,7 @@ public class CarExam {
 			}// 모드선택 스위치문 종료
 			
 		}// 주행 while문 종료
-		
-		
-		
+			
 	}// 차량 주행 보조 메서드 종료
 
 }// class 종료
