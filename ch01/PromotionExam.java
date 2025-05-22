@@ -3,30 +3,31 @@ package ch01;
 public class PromotionExam {
 
 	public static void main(String[] args) {
-		// ÀÚµ¿ Å¸ÀÔ º¯È¯ ¿¬½À
-		// ÀÛÀº Å¸ÀÔ °ªÀ» ¼Õ½Ç ¾øÀÌ Å« Å¸ÀÔ °ªÀ¸·Î º¯È¯ÇÏ´Â°Í
+		// ìë™ íƒ€ì…ë³€í™˜ ì—°ìŠµ
+		// : ì‘ì€ íƒ€ì… ê°’ì„ ì†ì‹¤ ì—†ì´ í° íƒ€ì… ê°’ìœ¼ë¡œ ë³€í™”í•˜ëŠ”ê²ƒ.
 		// byte(1byte : 8bit)
-		// short(2byte : 16bit) & char(À¯´ÏÄÚµå¿ë : ¹®ÀÚÇ¥Çö)
+		// short(2byte : 16bit) & char(ìœ ë‹ˆì½”ë“œìš© : ë¬¸ìí‘œí˜„)
 		// int(4byte : 32bit)
-		// long(8byte : 64bit)   // Á¢¹Ì»ç LÀ» ºÙ¿©¾ß ÇÔ 
+		// long(8byte : 64bit)   // ì ‘ë¯¸ì‚¬ Lì„ ë¶™ì—¬ì•¼ í•¨ 
 		
-		// float(4byte : 32 bit) // ¿©±â¼­ ºÎÅÍ ½Ç¼öÇü Á¢¹Ì»çF¸¦ ºÙ¿©¾ß ÇÔ
+		
+		// float(4byte : 32 bit) // ì—¬ê¸°ì„œ ë¶€í„° ì‹¤ìˆ˜í˜• ì ‘ë¯¸ì‚¬Fë¥¼ ë¶™ì—¬ì•¼ í•¨
 		// double(8byte : 64bit)
 		
-		byte byteValue = 10 ; // ¹ÙÀÌÆ® Å¸ÀÔÀÇ º¯¼ö¿¡ 10°ªÀ» ³Ö´Â´Ù.
-		int intValue = byteValue ; // ÀÚµ¿ Å¸ÀÔ º¯È¯ÀÌ µÊ ¿Ö? ÀÛÀº°Å->Å«°Å ·Î º¯È¯ÀÌ¶ó¼­
-		System.out.println("ÀÚµ¿ Å¸ÀÔ µÈ int : " + intValue);
+		byte byteValue = 10 ; // ë°”ì´íŠ¸ íƒ€ì…ì˜ ë³€ìˆ˜ì— 10ê°’ì„ ë„£ëŠ”ë‹¤.
+		int intValue = byteValue ; // ìë™íƒ€ì… ë³€í™˜ì´ ë¨
+		System.out.println("ï¿½Úµï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ int : " + intValue);
 		
-		char charValue = '°¡' ; // °¡´Â 10Áø¼ö·Î 44032->16Áø¼ö·Î AC00
+		char charValue = 'ê°€' ; // ìœ ë‹ˆì½”ë“œ 10ì§„ë²• 44032->16ì§„ë²• AC00
 		intValue = charValue ;
-		System.out.println("ÀÚµ¿ Å¸ÀÔ µÈ int : " + intValue);
+		System.out.println("ìë™íƒ€ì… ëœ int : " + intValue);
 		
 		intValue = 500 ;
-		long longValue = intValue ; //ÀÛÀº °Å->Å«°Å·Î º¯È¯
-		System.out.println("ÀÚµ¿ Å¸ÀÔ µÈ long  " + longValue);
+		long longValue = intValue ;
+		System.out.println("ìë™íƒ€ì… ëœ  long  " + longValue);
 		
 		double doubleValue = intValue ;
-		System.out.println("ÀÚµ¿Å¸ÀÔ µÈ double : " + doubleValue);
+		System.out.println("ìë™íƒ€ì… ëœ  double : " + doubleValue);
 
 		
 	}

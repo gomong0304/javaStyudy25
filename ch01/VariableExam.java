@@ -4,39 +4,33 @@ public class VariableExam {
 
 	public static void main(String[] args) {
 		
-		int mach ; // Á¤¼ö Å¸ÀÔÀÇ mach º¯¼ö¸¦ ¼±¾ğ
-		int distance ; //Á¤¼ö Å¸ÀÔÀÇ distance º¯¼ö¸¦ ¼±¾ğ
+		int mach ; 
+		int distance ; 
 		mach = 340 ;
-		distance = mach * 60 * 60 ; // À½¼ÓÀ» m/s·Î °è»ê
-		System.out.println("¼Ò¸®°¡ 1½Ã°£ µ¿¾È °¡´Â °Å¸® : " + distance + "m");
+		distance = mach * 60 * 60 ; // ìŒì† m/së¡œ ê³„ì‚°í•¨
 		
-		double radius ; // ½Ç¼ö Å¸ÀÔÀÇ radius º¯¼ö¸¦ ¼±¾ğ
-		double area ; // ½Ç¼ö Å¸ÀÔÀÇ area º¯¼ö¸¦ ¼±¾ğ
-		radius = 25.4 ;
-		area = radius * radius * 3.14 ; // ¿øÀÇ ³ĞÀÌ °è»ê
-		System.out.println("¹İÁö¸§ÀÌ " + radius + "ÀÎ ¿øÀÇ ³ĞÀÌ : " + area);
+		System.out.println("ì†Œë¦¬ê°€ 1ì‹œê°„ë™ì•ˆ ê°€ëŠ” ê±°ë¦¬");
+		System.out.println(distance + "m");
 		
+		double radius ; // ì‹¤ìˆ˜ íƒ€ì…ì˜ radius ë³€ìˆ˜ ì„ ì–¸
+		double area ; // ì‹¤ìˆ˜ íƒ€ì…ì˜ area ë³€ìˆ˜ ì„ ì–¸
+		// ì‹¤ìˆ˜ íƒ€ì…ì€ ì†Œìˆ˜ì ì´ ìˆë‹¤.
 		
-		char firstName, midName, lastName ; //¹®ÀÚ Å¸ÀÔÀÇ º¯¼ö »ı¼º
-		firstName = '¹Ú' ;
-		midName = 'Èñ' ; 
-		lastName = 'Áø' ; 
-		System.out.println("ÀÌ¸§Àº : " + firstName + midName + lastName );
+		radius = 10 ; // ì´ˆê¸° ê°’ì´ ì •ìˆ˜ì´ì§€ë§Œ ì‹¤ìˆ˜íƒ€ì…ì„ ë³€ê²½ë˜ì„œ ì¶œë ¥ëœë‹¤.
+		area = radius * radius * 3.14 ; // ì›ì˜ ë„“ì´
+		
+		System.out.print("ë°˜ì§€ë¦„ì´ " + radius + " ì¸");
+		System.out.println(" ì›ì˜ ë„“ì´ :" + area);
+	
+		
+		char firstName, midName, lastName ; 
+		firstName = 'P' ;
+		midName = 'H' ; 
+		lastName = 'J' ; 
+		System.out.println("ì´ë‹ˆì…œ : " + firstName + midName + lastName );
 		System.out.println(firstName);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
+	
 	}
 
 }

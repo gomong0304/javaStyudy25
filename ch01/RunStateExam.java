@@ -10,7 +10,7 @@ public class RunStateExam {
 		int result = x + y - z ; 
 		
 		
-		System.out.print("x,y¸¦ ´õÇÑ °ª¿¡ z¸¦ »« °ªÀº" + result + "ÀÔ´Ï´Ù.");
+		System.out.println("ê³„ì‚°í•œ ê°’ì€ : " + result); 
 				
 		
 

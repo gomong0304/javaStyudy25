@@ -3,21 +3,20 @@ package ch01;
 public class StringEqualsExam {
 
 	public static void main(String[] args) {
-		// Áö±İ±îÁö ¹è¿î º¯¼ö Å¸ÀÔÀº ±âº»Å¸ÀÔÀ¸·Î ÀÚ¹Ù¿¡¼­ °´Ã¼¾øÀÌ »ç¿ëµÊ
-		// Stringµµ ¿ø·¡ °´Ã¼¸¦ »ı¼ºÇÏ°í ¸¸µé¾î¾ß ÇÏÁö¸¸ ÆíÀÇ»ó »ı·«ÇØ¼­ »ç¿ë
-		
-		String strval1 = "¹ÚÈñÁø";
-		String strval2 = "¹ÚÈñÁø";
-		String strval3 = new String( "¹ÚÈñÁø" );
+		// ì§€ê¸ˆê¹Œì§€ ë°°ìš´ ë³€ìˆ˜ íƒ€ì…ì€ ê¸°ë³¸íƒ€ì…ìœ¼ë¡œ ìë°”ì—ì„œ ê°ì²´ ì—†ì´ ì‚¬ìš©ë¨
+		// Stringë„ ì›ë˜ ê°ì²´ë¥¼ ìƒì„±í•˜ê³  ë§Œë“¤ì–´ì•¼ í•˜ì§€ë§Œ í¸ì˜ìƒ ìƒëµí•´ì„œ ì‚¬ìš©
+		String strval1 = "ë°•í¬ì§„";
+		String strval2 = "ë°•í¬ì§„";
+		String strval3 = new String( "ë°•í¬ì§„" ); // ìƒˆë¡œìš´ ì£¼ì†Œë¥¼ ë§Œë“¤ì–´ëƒˆìŒ
 		
 		System.out.println( strval1 == strval2 );
 		System.out.println( strval1 == strval3 );
 		
 		boolean eq1 = strval1.equals( strval3 );
-		System.out.println( "1°ú 3ÀÇ eqals¸Ş¼­µå »ç¿ë °á°ú : " + eq1 );
-		// StringÀ¸·Î ºñ±³¸¦ ÇÒ¶§´Â == º¸´Ù´Â equals ¸Ş¼­µå¸¦ »ç¿ëÇØ¼­ ¾Ë¾Æº¸´Â°Ô Á¤È®ÇÏ´Ù.
-	
+		System.out.println( "1ê³¼ 3ë²ˆì˜ equalsë©”ì„œë“œ ì‚¬ìš© ê²°ê³¼ : " + eq1 );
 		
+		// ê²°ë¡  Stringì€ í•˜ë‚˜ì˜ ê°ì²´ë¡œ ì•ˆì— ë™ì‘ì´ í¬í•¨ë˜ì–´ìˆë‹¤.
+		// Stringìœ¼ë¡œ ë¹„êµë¥¼ í• ë•ŒëŠ” == ë³´ë‹¤ëŠ” equals ë©”ì„œë“œë¥¼ ì‚¬ìš©í•˜ì
 	}
 
 }

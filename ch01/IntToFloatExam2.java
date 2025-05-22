@@ -10,18 +10,20 @@ public class IntToFloatExam2 {
 		float num3 = num2 ;
 		num2 = (int) num3 ;
 		
-		System.out.println("num1 : " + num1) ; // 123456780
-		System.out.println("num2 : " + num2) ; // 123456784
-		System.out.println("num3 : " + num3) ; // 1.23456784E8
-		// num2ÀÌ int -> floatº¯ÇÏ¸é¼­ °ªÀÇ ¹üÀ§°¡ ´Þ¶óÁ®¼­ num1, num2ÀÇ °ªÀÌ ´Þ¶óÁü
+		System.out.println("num1 : " + num1) ;
+		System.out.println("num2 : " + num2) ; //num2 : 123456784 intì™€ floatì˜ ê°’ì˜ ë²”ìœ„ê°€ ë‹¬ë¼ì„œ num1 num2ì˜ ê°’ì´ ë‹¬ë¼ì§
+		System.out.println("num3 : " + num3) ; 
+		//num3 : 1.23456784E8 -> ì§€ìˆ˜í˜•ì‹ìœ¼ë¡œ Eë’¤ì— ìˆ«ìžë¥¼ ë¶€ë™ ì†Œìˆ˜ì  ì²˜ë¦¬
+		//       12.3456784E7
+		//       1234567.84E2
 
 		int result = num1 - num2 ;
 		System.out.println("==============================");
-		System.out.println("floatÀ¸·Î ´Ù³à¿Â ÈÄ¿¡ num2 °ª º¯°æµÊ");
+		System.out.println("floatìœ¼ë¡œ ë‹¤ë…€ì˜¨ í›„ì— num2 ê°’ ë³€ê²½ë¨");
 		System.out.println("num1 - num2 : " + result);
 		
-		// floatÀÌ ¼Ò¼öÁ¡À» »ç¿ëÇÏ±â ¶§¹®¿¡ int-> float °ªÀÇ º¯Á¶°¡ ÀÏ¾î³²
-		// ÀÌ·²¶§´Â float º¸´Ù ´õ Å« double À» »ç¿ëÇØ¼­ ÇØ°áÇØº¸ÀÚ
+		// float  int-> float 
+		// float double 
 
 	}
 

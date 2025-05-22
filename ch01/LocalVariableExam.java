@@ -3,20 +3,21 @@ package ch01;
 public class LocalVariableExam {
 
 	public static void main(String[] args) {
-		// º¯¼öÀÇ »ç¿ë ¹üÀ§´Â °ıÈ£(ºí·°)¾È¿¡¼­ È¿°ú¸¦ ¹ßÈÖÇÔ
+		// ë³€ìˆ˜ì˜ ì‚¬ìš©ë²”ìœ„ëŠ” ê´„í˜¸(ë¸”ëŸ­)ì•ˆì—ì„œ íš¨ê³¼ë¥¼ ë°œíœ˜í•¨
 		
-		int v1 = 5 ;
-		int v2 = 0 ;
+		int v1 = 10 ;
+		int v2 = 0 ; // ë³€ìˆ˜ ì„ ì–¸ì€ ìœ„ì—ì„œ ë‹¤ í•  ê²ƒ!!!
 		
-		if(v1>10) {  //if´Â ºñ±³¹®À¸·Î ()°ªÀÌ ÂüÀÌ¸é ºí·°À» ½ÇÇàÇÑ´Ù.
+		if(v1>10) { // ifëŠ” ë¹„êµë¬¸ìœ¼ë¡œ ()ê°’ì´ ì°¸ì´ë©´ ë¸”ëŸ­ì„ ì‹¤í–‰í•œë‹¤.
+			//int v2 = v1 + 10 ;
 			v2 = v1 + 10 ;
-		}
-		
+		} // ë¹„êµë¬¸ ì¢…ë£Œ
+
 		int v3 = v1 + v2 + 5 ;
 		
-		System.out.println("v1ÀÇ °ª : " + v1);
-		System.out.println("v2ÀÇ °ª : " + v2);
-		System.out.println("v3ÀÇ °ª : " + v3);
+		System.out.println("v1ì˜ ê°’ :" + v1);
+		System.out.println("v2ì˜ ê°’ :" + v2);
+		System.out.println("v3ì˜ ê°’ :" + v3);
 	}
 
 }

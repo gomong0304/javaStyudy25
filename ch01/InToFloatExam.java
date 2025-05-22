@@ -3,14 +3,14 @@ package ch01;
 public class InToFloatExam {
 
 	public static void main(String[] args) {
-		// floatÀº 32bit·Î µÇ¾îÀÖ´Â ºÎµ¿¼Ò¼öÁ¡ ¿¬»ê¿¡ »ç¿ëµÊ
-		// Á¤¼öÅ¸ÀÔÀ» ½Ç¼öÅ¸ÀÔÀ¸·Î º¯È¯ ÇÒ ¶§ ¼Õ½ÇÀÌ ¹ß»ıÇÑ´Ù.
+		// floatì€ 32bitë¡œ ë˜ì–´ ìˆëŠ” ë¶€ë™ì†Œìˆ˜ì  ì—°ì‚°ì— ì‚¬ìš©ë¨
+		// ì •ìˆ˜íƒ€ì…ì„ ì‹¤ìˆ˜íƒ€ì…ìœ¼ë¡œ ë³€í™˜ í•  ë•Œ ì†ì‹¤ì´ ë°œìƒí•œë‹¤.
 		// int(32bit) = float(32bit)
 		
 		int num1 = 123456781 ;
 		int num2 = 123456780 ;
 		
-		float num3 = num2 ; // int Å¸ÀÔ °ªÀ» float¿¡ ³ÖÀ½
+		float num3 = num2 ; // intíƒ€ì… ê°’ì„ floatì— ë„£ìŒ
 		
 		System.out.println(num1); // 123456781
 		System.out.println(num2); // 123456780

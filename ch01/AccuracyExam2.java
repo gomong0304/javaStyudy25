@@ -3,19 +3,17 @@ package ch01;
 public class AccuracyExam2 {
 
 	public static void main(String[] args) {
-		// ±×·¸´ã ¼Ò¼öÁ¡À» »©±â À§ÇØ¼­ »ç°ú 1°³¿¡ 10À» °öÇØ¼­ È°¿ëÇØº¾½Ã´Ù.
-		// int Å¸ÀÔ¸¸ »ç¿ëÇØº¸ÀÚ´Â ÀÇ¹Ì
+		// ì‚¬ê³¼ 1ê°œë¥¼ 10ê°œë¡œ ìª¼ê°¤ë•Œ ì†Œìˆ˜ì ì„ ì²˜ë¦¬í•˜ì§€ ë§ê³  10ì„ ê³±í•´ì„œ 
+		// í™œìš©ì„ í•´ë³´ì. int íƒ€ì…ë§Œ í™œìš©ì„ í•˜ì
 		
-		int apple = 1 ;
-		int totalPieces = apple * 10 ;
-		int number = 7 ;
-		int temp = totalPieces - number ; 
+		int apple = 1 ; // ì‚¬ê³¼ 1ê°œ
+		int totalPieces = apple *10 ; // 10ì¡°ê° ì²˜ë¦¬ìš©
+		int number = 7 ; // ì‚¬ê³¼ 7ì¡°ê°
+		int temp = totalPieces - number ; //  10ì¡°ê° - 7ì¡°ê°
 		
-		double result = temp / 10.0 ; 
-		System.out.println("»ç°ú ³²Àº Á¶°¢ ¼ö : " + result); 
-		
-		// Á¤¼ö·Î °è»êÇß´ø°ÍÀ» ¿ø·¡´ë·Î µ¹·Á³õ±â À§ÇØ¼­ 10.0À¸·Î ³ª´®
-		// 10.0Àº ½Ç¼ö¿©¼­ double »ç¿ë
+		double result = temp / 10.0 ; //ìœ„ì—ì„œ 10ì¡°ê°ì„ ì›ìœ„ì¹˜
+		System.out.println("ì‚¬ê³¼ ë‚¨ì€ ì¡°ê° ìˆ˜ : " + result);
+
 	}
 
 }

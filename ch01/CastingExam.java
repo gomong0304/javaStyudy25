@@ -3,52 +3,37 @@ package ch01;
 public class CastingExam {
 
 	public static void main(String[] args) {
-		// °­Á¦ Å¸ÀÔ º¯È¯(Casting)
-		// Å« Å©±âÀÇ Å¸ÀÔÀº ÀÛÀº Å©±âÀÇ Å¸ÀÔÀ¸·Î ÀÚµ¿ º¯È¯ÇÒ ¼ö ¾ø´Ù.
-		// int(21¾ï) 32bit -> byte 8bit Å¸ÀÔÀ¸·Î ´ãÀ¸¸é ´©¼ö°¡ ¹ß»ıÇÑ´Ù.
-		// °ªÀÌ ³ÑÄ¡´õ¶óµµ °­Á¦·Î Àû¿ëÇÏ´Â ¹ıÀ» °­Á¦ Å¸ÀÔ º¯È¯ÀÌ¶ó°í ÇÔ
+		// ê°•ì œ íƒ€ì… ë³€í™˜(Casting)
+		// í° í¬ê¸°ì˜ íƒ€ì…ì€ ì‘ì€ í¬ê¸°ì˜ íƒ€ì…ìœ¼ë¡œ ìë™ë³€í™˜ í•  ìˆ˜ ì—†ë‹¤.
+		// int(21ì–µ) -> byte íƒ€ì…ìœ¼ë¡œ ë‹´ìœ¼ë©´ ëˆ„ìˆ˜ê°€ ë°œìƒí•œë‹¤.
+		// ì´ê²ƒì„ ëˆ„ìˆ˜ê°€ ë°œìƒí•´ë„ ê°•ì œë¡œ ì ìš©í•˜ëŠ” ë²•ì„ ê°•ì œ íƒ€ì… ë³€í™˜ì´ë¼ê³  í•œë‹¤.
 		
 		int intValue = 123456789 ;
-		byte byteValue = (byte)intValue ; // °­Á¦·Î byte Å¸ÀÔÀ¸·Î º¯È¯Çß´Ù
+		byte byteValue = (byte)intValue ; 
+		// ê°•ì œë¡œ byte íƒ€ì…ìœ¼ë¡œ ë³€í™˜ (ê´„í˜¸ì•ˆì— íƒ€ì… ë„£ìœ¼ë©´ ê°•ì œ ë³€í™˜)
+		//Type mismatch: cannot convert from int to byte
 		
-		System.out.println("int Å¸ÀÔ °ª Ãâ·Â : " + intValue);
-		System.out.println("byte Å¸ÀÔ °ª Ãâ·Â : " + byteValue);
+		System.out.println("int íƒ€ì… ê°’ ì¶œë ¥ : " + intValue);
+		System.out.println("byte íƒ€ì… ê°’ ì¶œë ¥ : " + byteValue);
 		
 		int kor = 100 ;
 		int eng = 99 ;
 		int mat = 97 ;
 		
-		int total = kor + eng + mat ;
-		System.out.println("=========¼ºÀûÇ¥==========");
-		System.out.println(" ±¹¾î + ¿µ¾î + ¼öÇĞ = ÃÑÁ¡ : " + total);
+		int total = kor + eng + mat ; // ì •ìˆ˜
+		System.out.println("=========ì„±ì í‘œ==========");
+		System.out.println(" êµ­ì–´ + ì˜ì–´ + ìˆ˜í•™ = ì´ì  : " + total);// ì •ìˆ˜
 		
- 		int avg = total / 3 ; // int »ç¿ë½Ã¿¡´Â Á¤¼ö·Î¸¸ Ãâ·Â
- 		System.out.println("Æò±Õ Á¡¼ö : " + avg); // Á¤¼ö·Î ÀÚµ¿ Å¸ÀÔ º¯È¯
+ 		int avg = total / 3 ; // int ê°’ìœ¼ë¡œ í‰ê· ì„ êµ¬í•¨
+ 		System.out.println("í‰ê· ì ìˆ˜ : " + avg); 
  		
- 		double avg2 = total / 3 ;
- 		System.out.println("Æò±Õ Á¡¼ö : " + avg2);
+ 		double avg2 = total / 3 ; // ìë™íƒ€ì… ë³€í™˜ ë¨
+ 		System.out.println("í‰ê· ì ìˆ˜  : " + avg2);
  		
- 		avg2 = (double)total / 3 ; // °­Á¦ Å¸ÀÔº¯È¯ÇÏ¿´À½
- 		System.out.println("Æò±Õ Á¡¼ö : " + avg2);
+ 		avg2 = (double)total / 3 ; // ê°•ì œíƒ€ì… ë³€í™˜ í•¨
+ 		System.out.println("í‰ê· ì ìˆ˜  : " + avg2);
  		
- 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+ 	
 	}
 
 }

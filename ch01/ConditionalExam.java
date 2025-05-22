@@ -3,21 +3,13 @@ package ch01;
 public class ConditionalExam {
 
 	public static void main(String[] args) {
-		// »ïÇ× ¿¬»êÀÚ´Â 3°³ÀÇ Ç×À» °¡Áø ¿¬»êÀÚ
-		// if¿Í °°ÀÌ ºñ±³ÇÏ´Â ¿¬»êÀÚ·Î ¸¹ÀÌ È°¿ë
-		// Á¶°Ç½Ä ? Âü(½ÇÇà) : °ÅÁş(½ÇÇà) -> ±âº» ±¸Á¶
+		// ì‚¼í•­ì—°ì‚°ìëŠ” 3ê°œì˜ í•­ì„ ê°€ì§„ ì—°ì‚°ì
+		// ifì™€ ê°™ì´ ë¹„êµí•˜ëŠ” ì—°ì‚°ìë¡œ ë§ì´ í™œìš©
+		// ì¡°ê±´ì‹ ? ì°¸(ì‹¤í–‰ë¬¸) : ê±°ì§“(ì‹¤í–‰ë¬¸) -> ê¸°ë³¸ í˜•íƒœ
 		
-		int x = 80;
-		String y = ( x > 80 ) ? "ÇÕ°İ" : "ºÒÇÕ°İ";
-		System.out.println( x + " Á¡¼ö´Â " + y + "ÀÔ´Ï´Ù." );
+		int eng = 75;
+		char grade = (eng > 90 ) ? 'A' : ( (eng >= 80) ? 'B' : 'C') ;
+		System.out.println(eng + "ì ì€" + grade + "ë“±ê¸‰ì…ë‹ˆë‹¤");	
 		
-		int eng = 95;
-		int mat = 75;
-		int total = x + eng + mat;
-		int avg = total / 3;
-		System.out.println( total );
-		System.out.println((double)avg);
-	
-	}
-
-}
+	}//mainì¢…ë£Œ
+}//classì¢…ë£Œ

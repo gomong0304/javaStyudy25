@@ -1,37 +1,37 @@
 package ch01;
 
-import java.util.Scanner;
+import java.util.Scanner; // ì™¸ë¶€ë¼ì´ë¸ŒëŸ¬ë¦¬ì—ì„œ ê°€ì§€ê³ ì˜¨ë‹¤
 
 public class LogicalExam {
 
 	public static void main(String[] args) {
-		// ³í¸®ÀûÀÎ ¿¬»êÀÚ´Â Å©°Ô 5°¡Áö À¯ÇüÀÌ ÀÖ´Ù.
-		// & : ³í¸® °ö -> ~ÀÌ°í 2°¡Áö º¯¼ö°¡ ¸ğµÎ ÂüÀÏ °æ¿ì¿¡ Âü
-		// | : ³í¸® ÇÕ -> ~ÀÌ°Å³ª 2°¡Áö Áß ÇÑ°³¶óµµ ÂüÀÏ °æ¿ì¿¡ Âü
-		// ! : ³í¸® ºÎÁ¤ -> Âü°ú °ÅÁşÀ» ¹İÀü
-		// ^ : ¹èÅ¸Àû ³í¸® ÇÕ -> ³í¸®ÇÕÀÇ ¸¶Áö¸·ÀÎ 1 + 1 = À¸·Î °á·ĞÀÌ ³­´Ù
+		// ë…¼ë¦¬ì ì¸ ì—°ì‚°ìëŠ” í¬ê²Œ 5ê°€ì§€ ìœ í˜•ì´ ìˆë‹¤.
+		// & : ë…¼ë¦¬ ê³± -> ~ì´ê³  (2ê°€ì§€ ë³€ìˆ˜ê°€ ëª¨ë‘ ì°¸ì¼ ê²½ìš°ì— ì°¸)
+		// | : ë…¼ë¦¬ í•© -> ~ì´ê±°ë‚˜ (2ê°€ì§€ ì¤‘ í•œê°œë¼ë„ ì°¸ì¼ ê²½ìš°ì— ì°¸)
+		// ! : ë…¼ë¦¬ ë¶€ì • -> ì°¸ê³¼ ê±°ì§“ì„ ë°˜ì „í•¨
+		// ^ : ë°°íƒ€ì  ë…¼ë¦¬ í•© -> ë…¼ë¦¬í•©ì˜ ë§ˆì§€ë§‰ì¸ 1 + 1 = 0 ìœ¼ë¡œ ê²°ë¡ ì´ ë‚¨ 
 		
 		String loginid = "abc";
 		String loginpw = "1234";
 		
 		Scanner input = new Scanner(System.in);
-		//ÄÜ¼Ö¿¡ Å°º¸µå·Î °ªÀ» ¹Ğ¾î ³ÖÀ» °´Ã¼¸¦ »ı¼º
+		// ì½˜ì†”ì— í‚¤ë³´ë“œë¡œ ê°’ì„ ë°€ì–´ ë„£ì„ ê°ì²´ë¥¼ ìƒì„±í•¨
 		
-		System.out.println( "·Î±×ÀÎÇÒ id¸¦ ÀÔ·ÂÇÏ¼¼¿ä : " );
+		System.out.println( "ë¡œê·¸ì¸í•  IDë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : " );
 		String id = input.nextLine();
-		System.out.println("ÀÔ·ÂÇÏ½Å id´Â : " + id + " ÀÔ´Ï´Ù.");
+		System.out.println("ì…ë ¥í•˜ì‹  IDëŠ” : " + id + " ì…ë‹ˆë‹¤.");
 		
-		System.out.println("·Î±×ÀÎÇÒ ¾ÏÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.println("ë¡œê·¸ì¸í•  PWë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 		String pw = input.nextLine();
-		System.out.println("==°ËÁõ ÁßÀÔ´Ï´Ù.==");
+		System.out.println("==ê²€ì¦ì¤‘==");
 		
 		
 		if ( (loginid.equals(id)) & (loginpw.equals(pw)) ) {
-			System.out.println("id³ª pw°¡ ÀÏÄ¡ÇÕ´Ï´Ù.");
-			System.out.println("·Î±×ÀÎ ¼º°ø~!");
+			System.out.println("IDì™€ PWê°€ ëª¨ë‘ì¼ì¹˜í•©ë‹ˆë‹¤.");
+			System.out.println("ë¡œê·¸ì¸ ì„±ê³µ!");
 		}	else { 
-			System.out.println("id³ª pw°¡ ´Ù¸¨´Ï´Ù.");
-			System.out.println("·Î±×ÀÎ ½ÇÆĞ!");
-			}//if¹® Á¾·á		
-	}//main ¸Ş¼­µå Á¾·á
-}//Class Á¾·á
+			System.out.println("IDë‚˜ PWê°€ ì¼ì¹˜í•˜ì§€ì•ŠìŠµë‹ˆë‹¤.");
+			System.out.println("ë¡œê·¸ì¸ ì‹¤íŒ¨");
+			}//ifë¬¸ ì¢…ë£Œ		
+	}//main ë©”ì„œë“œ ì¢…ë£Œ
+}//Class ì¢…ë£Œ

@@ -3,22 +3,23 @@ package ch01;
 public class CompareExam {
 
 	public static void main(String[] args) {
-		// ºñ±³ ¿¬»êÀÚ´Â µ¿µîºñ±³¿Í Å©±âºñ±³°¡ ÀÖ´Ù.
-		// == : °°³Ä?
-		// != : ´Ù¸£³Ä? -> !´Â ºÎÁ¤ÀÇ ÀÇ¹Ì
-		// >  : ÃÊ°ú, Å©³Ä?
-		// >= : ÀÌ»ó, Å©°Å³ª °°³Ä?
-		// <  : ¹Ì¸¸, ÀÛ³Ä?
-		// <= : ÀÌÇÏ, ÀÛ°Å³ª °°³Ä?
+		// ë¹„êµ ì—°ì‚°ìëŠ” ë™ë“±ë¹„êµì™€ í¬ê¸°ë¹„êµê°€ ìˆë‹¤.
+		// == : ê°™ëƒ?
+		// != : ë‹¤ë¥´ëƒ?
+		// >  : ì´ˆê³¼, í¬ëƒ?
+		// >= : ì´ìƒ, í¬ê±°ë‚˜ ê°™ëƒ?
+		// <  : ë¯¸ë§Œ, ì‘ëƒ?
+		// <= : ì´í•˜, ì‘ê±°ë‚˜ ê°™ëƒ?
 		
 		int num1 = 10;
 		int num2 = 10;
-		boolean result1 = ( num1 <= num2 ); // ÀÚµ¿À¸·Î true false ±¸ºĞ
-		System.out.println( result1 );
-		// booleanÀº Âü °ÅÁş °ªÀ» °®´Â´Ù.
+		boolean result1 = ( num1 <= num2 ); 
+		//boolean íƒ€ì…ì€ true, false ê°’ì„ ê°–ì„ ìˆ˜ ìˆë‹¤.
+		//              ì°¸     ê±°ì§“
+		System.out.println(result1);
 		
-		char char1 = 'A'; // À¯´ÏÄÚµå·Î A°ªÀº 65
-		char char2 = 'a'; // À¯´ÏÄÚµå·Î a°ªÀº 97
+		char char1 = 'A'; // ìœ ë‹ˆì½”ë“œë¡œ A 65
+		char char2 = 'a'; // ìœ ë‹ˆì½”ë“œë¡œ a 97
 		boolean result2 = ( char1 > char2 );
 		System.out.println( result2 );
 		boolean result3 = ( num1 > char2 );
@@ -28,40 +29,29 @@ public class CompareExam {
 		char char4 = 42;
 		System.out.println(char3);
 		System.out.println(char4);
-		// char ºÎºĞÀÌ Á» Çò°¥¸®³× ¾Æ¸®±î¸®
 		
 		int v2 = 1;
 		double v3 =1.0;
 		System.out.println("===================================");
 		System.out.println(v2 == v3);
-		// µ¿µîºñ±³¿¬»êÀÚ¿¡ Å¸ÀÔÀÌ ´Ù¸¥ º¯¼ö¸¦ ºñ±³ÇÏ¸é ÀÚµ¿À¸·Î Å¸ÀÔ º¯È¯ÀÌ ÀÏ¾î³­´Ù
-		// ÀÌ¶§ ÀÚµ¿ Å¸ÀÔ º¯È¯Àº Å« °ªÀ¸·Î Å¸ÀÔÀ» ¸ÅÄªÇÑ´Ù.
+		// ë™ë“±ë¹„êµì—°ì‚°ìì— íƒ€ì…ì´ ë‹¤ë¥¸ ë³€ìˆ˜ë¥¼ ë¹„êµí•˜ë©´ ìë™ íƒ€ì… ë³€í™˜ì´ ì¼ì–´ë‚œë‹¤.
+		// ì´ë•Œ ìë™ íƒ€ì… ë³€í™˜ì€ í° ê°’ìœ¼ë¡œ íƒ€ì…ì„ ë§¤ì¹­í•œë‹¤.
 		
-		double v4 = 0.1;
-		float v5 = 0.1F;
-		System.out.println("===================================");
-		System.out.println(v4 ==v5);
-		// ½Ç¼öÇüÀº ºÎµ¿ ¼Ò¼öÁ¡ ¿¬»êÀ» ¼öÇàÇØ¼­ ±Ù»ç°ªÀ¸·Î Ç¥ÇöÀ»ÇÑ´Ù
-		// ¶§¹®¿¡ double°ú floatÀÇ °ªÀÌ ´Ù¸£´Ù.
-		// true·Î ³ª¿À°Ô ÇÏ·Á¸é °­Á¦ Å¸ÀÔ º¯È¯À» ÇØ¾ßÇÑ´Ù.
-		System.out.println( (float)v4 == v5 );
-		System.out.println( v4 == (double)v5 ); // ¿Ö falseÀÌÁö?
+		double v4 = 0.1 ;
+		float v5 = 0.1F ;
+		System.out.println("==========================");
+		System.out.println(v4 == v5); // false ì™œ?
+		// ì‹¤ìˆ˜í˜•(ì†Œìˆ˜ì )ì€ ë¶€ë™ ì†Œìˆ˜ì  ì—°ì‚°ì„ ìˆ˜í–‰í•´ì„œ ê·¼ì‚¬ê°’ìœ¼ë¡œ í‘œí˜„ì„ í•œë‹¤.
+		// true ì²˜ë¦¬ë¥¼ í•˜ë ¤ë©´ ê°•ì œíƒ€ì… ë³€í™˜ì„ í•´ì•¼í•¨
+		System.out.println((float)v4 == v5); // v4ë¥¼ float í˜•ìœ¼ë¡œ ë³€í™˜
+		System.out.println(v4 == (double)v5); // v5ë¥¼ double í˜•ìœ¼ë¡œ ë³€í™˜ ->ìë™ íƒ€ì… ë³€í™˜ì„
 		
-		System.out.println( (int)(v4*10) == (int)(v5*10) );
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
+		System.out.println((int)(v4*10) == (int)(v5*10)); 
+		// (int)v4 (int)v5ì²˜ë¦¬ë¥¼ í•˜ë©´ ë‘˜ë‹¤ ì†Œìˆ˜ì ì„ ë‚ ë ¤ì„œ 0ì´ ë¨
+		// ê·¸ë˜ì„œ 10ì„ ê³±í•´ì¤€ ë‹¤ìŒì— (int) ì²˜ë¦¬ë¥¼ í•¨
+		System.out.println(v4); // 0.1
+		System.out.println(v5); // 0.1
+		//printë¬¸ì—ì„œ ê³„ì‚°ì„ í•œ ê°’ì€ ë³€ìˆ˜ì— ì €ì¥ë˜ì§€ ì•ŠëŠ”ë‹¤. ì™œ? í•´í‚¹ ë•Œë¬¸ì—
 	}
 
 }
