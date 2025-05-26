@@ -38,19 +38,26 @@ public class Member {
 		return member;
 	}
 	
-	public void memberAllList() {
+	public void memberAllList(Member[] members) {
 		System.out.println("회원 전체 목록 보기용 메서드 입니다.");
-	}
+		for(int i = 0; i<members.length; i++) {
+			System.out.println("==" + (i+1) + "번째 회원 정보==");
+			System.out.println("회원 번호 : " + members[i].infor);
+			System.out.println("회원 id : " + members[i].id);
+			System.out.println("회원 pw : " + members[i].pw);
+		}
+	}// 회원 전체 목록 보기용 메서드 종료
+	 // return이 없어서 void로 저장
 	
-	public void memberLogin() {
+	public void memberLogin(Member[] members) {
 		System.out.println("로그인용 메서드 입니다.");
 	}
 	
-	public void memberUpdate() {
+	public void memberUpdate(Member[] members) {
 		System.out.println("회원 수정용 메서드 입니다.");
 	}
 	
-	public void memberDelete() {
+	public void memberDelete(Member[] members) {
 		System.out.println("회원 탈퇴용 메서드 입니다.");
 	}
 }

@@ -1,5 +1,7 @@
 package ch04;
 
+import ch04.Week.Week;
+
 public class RankingEnumExam {
 
 	public static void main(String[] args) {

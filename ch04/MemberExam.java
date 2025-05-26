@@ -39,20 +39,36 @@ public class MemberExam {
 				member1 = member1.memberAdd(input);
 				members[i] = member1;
 			}//case1의 for문 종료
+			break;
+		
+		case 2 : 
+			Member member2 = new Member();
+			member2.memberAllList(members);
+			break;
+			
+		case 3 : 
+			Member member3 = new Member();
+			member3.memberLogin(members);
+			break;
+			
+		case 4 : 
+			Member member4 = new Member();
+			member4.memberUpdate(members);
+			break;
+			
+		case 5 : 
+			Member member5 = new Member();
+			member5.memberDelete(members);
+			break;
+			
+		default : 
+			System.out.println("회원 가입 프로그램이 종료됩니다.");
+			run = false;
+			
 		}// 회원 메뉴 선택 switch문 종료
-		
-		
-		
-		
+				
 		}// 회원 메뉴 while문 종료
-		
-		
-		
-		
-		
-		
-		
-		
+			
 	}// main 메서드 종료
 
 }// class 종료
