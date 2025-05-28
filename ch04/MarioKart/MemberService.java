@@ -118,6 +118,7 @@ public class MemberService {
 			System.out.println("변경할 pw를 입력하세요");
 			System.out.print(">>> ");
 			loginState.id = input.next();
+			System.out.println(updateMember.id + "에서 " + loginState.id + "로 변경완료되었습니다." );
 		}// if문 종료 (로그인한 사용자 정보만 변경)
 		return loginState;
 	}// 회원 정보 수정 메서드 종료
