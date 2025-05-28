@@ -13,4 +13,6 @@ java는 17버전을 설치함.
 
 - 0519 다차원 배열 어렵다....
 
+- 마리오카드 코드 / 뱅크 코드 / 리니지 게임 코드 추가로 더 채워보기
+
   ![슬라이드2](https://github.com/user-attachments/assets/8a5763f8-28b7-4154-a7c5-10f4dfdde030)
