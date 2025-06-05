@@ -1,0 +1,599 @@
+desc emp;            -- emp 테이블 구조보기
+select * from emp;   -- emp 테이블 내용보기
+select empno, ename, deptno from emp;
+select job, sal, comm from emp;
+select deptno from emp;
+select distinct job,deptno from emp;
+select all job,deptno from emp;
+
+desc dept;           -- dept 테이블 구조보기
+select * from dept;  -- dept 테이블 내용보기
+
+desc bonus;          -- bonus 테이블 구조보기
+select * from bonus; -- bonus 테이블 내용보기
+
+desc salgrade;       -- slagrede 테이블 구조보기
+select * from salgrade; -- slagrede 테이블 내용보기
+
+
+select ename, sal, sal*12+comm, comm from emp;
+select ename, sal, sal*12+comm as annsal, comm from emp;
+
+select * from emp order by sal;
+select * from emp order by sal desc;
+select * from emp order by empno;
+select * from emp order by empno , sal desc;
+select job from emp;
+select distinct job from emp;
+
+select * from emp;
+select empno as employee_no, ename as employee_name, mgr as manager, sal as salary, comm as commission, deptno as department_no from emp order by deptno desc, ename asc;
+
+select * from emp where deptno = 30;
+select * from emp where empno = 7782;
+
+select * from emp where deptno = 30 and job ='SALESMAN';
+select * from emp where deptno = 30 or job = 'CLERK';
+select * from emp where sal * 12 = 36000;
+select * from emp where sal >= 3000;
+select * from emp where sal >= 2500 and job = 'ANALYST';
+select * from emp where ename <= 'FORZ';
+
+select * from emp where sal != 3000;
+select * from emp where not sal = 3000;
+select * from emp where job in ('MANAGER', 'SALESMAN');
+select * from emp where job in ('MANAGER', 'SALESMAN') ;
+
+select * from emp where sal not between 2000 and 3000;
+
+select * from emp where ename like'_L%';
+select * from emp where ename like '%A%';
+
+select * from emp where mgr is not null;
+
+select * from emp where ename like '%S';
+
+select * from emp where job = 'SALESMAN';
+select empno, ename, job, sal, deptno from emp where deptno = 30 and job = 'SALESMAN' ;
+
+-- 집합 연산자를 이용하지 않은 방식
+select empno,ename,job,sal,deptno from emp where deptno between 20 and 30 and sal > 2000;
+-- 집합 연산자를 이용한 방식
+select empno,ename,job,sal,deptno from emp where deptno = 20 and sal > 2000 union select empno,ename,job,sal,deptno from emp where deptno = 30 and sal > 2000 ;
+
+select * from emp where sal < 2000 or sal > 3000 order by sal asc ;
+
+select ename, empno, sal, deptno from emp  where ename like '%E%' and sal not between 1000 and 2000 and deptno = 30;
+
+select * from emp where ename not like '_L%' and job in ('MANAGER', 'CLERK') and mgr is not null and comm is null order by sal asc;
+
+-- uuper lower initcpa 함수
+select ename, upper(ename), lower(ename), initcap(ename) from emp;
+select * from emp where upper(ename) = upper('scott');
+select * from emp where upper(ename) like upper('%scott%');
+
+-- susstr 함수
+select ename, length(ename) from emp  where length(ename) >=5 ;
+select job, substr(job, 1, 2), substr(job, 3, 2), substr(job, 5) from emp;
+select job, substr(job, -length(job)), substr(job, -length(job),2), substr(job, -3) from emp;
+
+-- instr 함수
+select * from emp where instr(ename, 'S')>0;
+select * from emp where ename like '%S%';
+
+-- replacs 함수
+select '010-3126-6765' as replace_before, replace('010-3126-6765', '3126', '9190') as replace_1, replace('010-3126-6765', '6765', '2175') as replace_2 from dual;
+
+-- pad 함수
+select 'Oracle', lpad('Oracle', 10, '#') as lpad_1, rpad('Oracle', 10, '*') as rpad_1, lpad('Oracle', 10) as lpad_2, rpad('Oracle', 10 ) as rpad_2 from dual;
+select rpad('970702-', 14, '*') as rpad_ssn, rpad('010-3126-', 13, '*') as rpd_phone from dual;
+select concat(empno, ename), concat(empno, concat(' : ', ename)) from emp where ename = 'SCOTT';
+select empno || ename, empno || ' :' ||ename from emp where ename = 'SCOTT';
+
+-- trim 함수
+select '[' || trim(' _ _ Oracle_ _ ') || ']' as trim , '[' || trim(leading from ' _ _ Oracle_ _ ') || ']' as trim_leading from dual; 
+select '[' || ltrim('<_Orecla_>', '<_') || ']' as ltrim_2 from dual;
+
+-- round 함수
+select round(1234.5678) as round, round(1234.5678, 0) as round_0, round(1234.5678, 1) as round_1, round(1234.5678, 2) as round_2, round(1234.5678, -1) as round_minus1 from dual;
+
+select trunc(1234.5678) as trunc, trunc(1234.5678, 0) as trunc_0, trunc(1234.5678, 1) as trunc_1, trunc(1234.5678, 2) as trunc_2, trunc(1234.5678, -1) as trunc_minus1 from dual; 
+
+-- add_months 함수
+select sysdate as now, sysdate-1 as yes, sysdate+1 as tom from dual;
+select sysdate, add_months(sysdate, 4) from dual;
+select empno, ename, hiredate, add_months(hiredate, 120)as work10year from emp;
+
+-- months_between 함수
+select empno, ename, hiredate, sysdate, months_between(hiredate, sysdate) as month1, months_between(sysdate, hiredate) as month2, trunc(months_between(sysdate, hiredate)) as month3 from emp;
+
+-- next_day, last_day 함수
+select sysdate, next_day(sysdate, '일요일'), last_day(sysdate) from dual;
+
+-- round,trunc 함수
+select sysdate, round(sysdate, 'CC') AS FORMAT_CC, ROUND(SYSDATE,'YYYY') AS FORMAT_YYYY, ROUND(SYSDATE, 'Q') AS FORMAT_Q, ROUND(SYSDATE, 'DDD') AS FORMAT_DDD, ROUND(SYSDATE, 'HH') AS FORMAT_HH FROM DUAL;
+SELECT SYSDATE, TRUNC(sysdate, 'CC') AS FORMAT_CC, TRUNC(SYSDATE,'YYYY') AS FORMAT_YYYY, TRUNC(SYSDATE, 'Q') AS FORMAT_Q, TRUNC(SYSDATE, 'DDD') AS FORMAT_DDD, TRUNC(SYSDATE, 'HH') AS FORMAT_HH FROM DUAL; 
+
+-- TO_CHAR 함수
+SELECT TO_CHAR(SYSDATE, 'YYYY/MM/DD HH24:MI:SS') AS 현재날짜시간 FROM DUAL;
+
+-- 날짜 이후 입사한 사원정보 찾기
+SELECT * FROM EMP WHERE HIREDATE >TO_DATE('1981/06/01', 'YYYY/MM/DD') ORDER BY HIREDATE ASC;
+
+--  NVL 함수 사용해보기
+SELECT EMPNO, ENAME, SAL, COMM, SAL+COMM, NVL(COMM,0), SAL+NVL(COMM,0) FROM EMP;
+
+-- NVL2 함수 사용해보기
+SELECT EMPNO, ENAME, SAL, COMM, NVL2(COMM, 'O', 'X'), NVL2(COMM, SAL*12+COMM, SAL*12) AS ANNSAL FROM EMP;
+
+-- DECODE 함수
+SELECT EMPNO, ENAME, JOB, SAL, DECODE(JOB, 'MANAGER', SAL*1.1, 'SALESMAN', SAL*1.05, 'ANALYST', SAL, SAL*1.03) AS UPSAL FROM EMP;
+
+-- CASE 함수
+SELECT EMPNO, ENAME, COMM, SAL, CASE WHEN COMM IS NULL THEN '해당사항없음' WHEN COMM = 0 THEN '수당없음' WHEN COMM > 0 THEN '수당 : ' || COMM END AS COMM_TEXT FROM EMP ORDER BY SAL ;
+
+----------------------------------------------------------------------------------
+-- 문제 풀이(P174)
+-- 1번 문제
+SELECT EMPNO,SUBSTR(EMPNO,1,LENGTH(EMPNO)-2) || '**' AS MASKING_EMPNO, ENAME, SUBSTR(ENAME,1,1) || RPAD('*', LENGTH(ENAME)-1, '*') AS MASKING_ENAME FROM EMP WHERE 6>LENGTH(ENAME) AND LENGTH(ENAME)>=5;
+
+-- 2번 문제
+SELECT EMPNO, ENAME, SAL, TRUNC(SAL/21.5, 2) AS DAY_PAY, ROUND((SAL/21.5)/8, 1)AS TIME_PAY FROM EMP;
+
+-- 3번 문제
+-- SELECT EMPNO, ENAME, HIREDATE, ADD_MONTHS(HIREDATE,3 ) AS R_JOB, NVL(NULL, 'N/A') AS COMM FROM EMP;
+
+----------------------------------------------------------------------------------
+-- 다중행 함수
+-- SUM 함수
+SELECT SUM(SAL) FROM EMP;
+SELECT ENAME,SAL FROM EMP;
+SELECT ENAME, SUM(SAL) FROM EMP; -- 다중행 함수와 여러행이 나올 수있는 데이터 함께 명시 불가능
+SELECT SUM(DISTINCT SAL), SUM(ALL SAL), SUM(SAL) FROM EMP;
+
+-- COUNT 함수
+SELECT COUNT(*) FROM EMP;
+SELECT COUNT(*) FROM EMP WHERE DEPTNO = 30;
+SELECT COUNT(DISTINCT SAL), COUNT(ALL SAL), COUNT(SAL) FROM EMP; -- NULL은 COUNT 함수에서 제외된다.
+SELECT COUNT(COMM) FROM EMP WHERE COMM IS NOT NULL;
+
+-- MAX,MIN 
+SELECT MAX(SAL) FROM EMP WHERE DEPTNO = 10;
+SELECT MIN(SAL) FROM EMP WHERE DEPTNO = 10;
+SELECT MAX(HIREDATE) FROM EMP WHERE DEPTNO = 20;
+SELECT MIN(HIREDATE) FROM EMP WHERE DEPTNO = 20;
+
+
+-- AVG
+SELECT AVG(SAL) FROM EMP WHERE DEPTNO = 30;
+SELECT AVG(DISTINCT SAL) FROM EMP WHERE DEPTNO = 30; -- 급여 중복값제외하고 나온 평균값
+
+----------------------------------------------------------------------------------
+-- GROUP BY절
+SELECT AVG(SAL), '10' AS DEPTNO FROM EMP WHERE DEPTNO = 10 UNION ALL SELECT AVG(SAL), '20' AS DEPTNO FROM EMP WHERE DEPTNO = 20 UNION ALL
+SELECT AVG(SAL), '30' AS DEPTNO FROM EMP WHERE DEPTNO = 30 ; -- 이 방식은 복잡하다
+-- GROUP BY절 기본 사용법
+SELECT AVG(SAL), DEPTNO FROM EMP GROUP BY DEPTNO;
+SELECT DEPTNO, JOB , AVG(SAL) FROM EMP GROUP BY DEPTNO, JOB ORDER BY DEPTNO, JOB;
+-- 조건을 주는 HAVING 절 (WHERE절과 혼동하지 말기!)
+SELECT DEPTNO, JOB, AVG(SAL) FROM EMP GROUP BY DEPTNO, JOB HAVING AVG(SAL) >= 2000 ORDER BY DEPTNO, JOB;
+-- WHERE절과 HAVING절 비교
+SELECT DEPTNO, JOB, AVG(SAL) FROM EMP GROUP BY DEPTNO, JOB HAVING AVG(SAL) >= 2000 ORDER BY DEPTNO, JOB;
+SELECT DEPTNO, JOB, AVG(SAL) FROM EMP WHERE SAL <= 3000 GROUP BY DEPTNO, JOB HAVING AVG(SAL) >= 2000 ORDER BY DEPTNO, JOB;
+
+-- ROLLUP,CUBE,GROUPING SETS 함수
+SELECT DEPTNO, JOB, COUNT(*), MAX(SAL), SUM(SAL), AVG(SAL) FROM EMP GROUP BY DEPTNO, JOB ORDER BY DEPTNO, JOB;
+SELECT DEPTNO, JOB, COUNT(*), MAX(SAL), SUM(SAL), AVG(SAL) FROM EMP GROUP BY ROLLUP(DEPTNO, JOB);
+
+----------------------------------------------------------------------------------
+-- P266 데이터 추가하기
+-- 테이블 복사하기
+
+CREATE TABLE DEPT_TEMP AS SELECT * FROM DEPT;
+SELECT * FROM DEPT_TEMP;
+
+-- 데이터를 추가하는 INSERT문
+INSERT INTO DEPT_TEMP (DEPTNO, DNAME, LOC) VALUES (50, 'DATABASE', 'SEOUL');
+SELECT * FROM DEPT_TEMP;
+
+INSERT INTO DEPT_TEMP VALUES(60, 'NETWORK', 'BUSAN');
+INSERT INTO DEPT_TEMP VALUES(70, 'WEB', NULL);
+SELECT * FROM DEPT_TEMP;
+
+-- 테이블 복사하기
+CREATE TABLE EMP_TEMP AS SELECT * FROM EMP WHERE 1<>1;
+SELECT * FROM EMP_TEMP;
+
+-- INSERT 날짜 데이터 입력하기
+INSERT INTO EMP_TEMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+SELECT * FROM EMP_TEMP;
+
+INSERT INTO EMP_TEMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (1111, '박희진', 'PRESIDENT', NULL, TO_DATE('07/01/2001', 'DD/MM/YYYY'), 5000, 1000, 1);
+SELECT * FROM EMP_TEMP;
+
+INSERT INTO EMP_TEMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (2222, '지선우', 'MANAGER', 9999 , SYSDATE, 3000, 500, 2);
+SELECT * FROM EMP_TEMP;
+
+INSERT INTO EMP_TEMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) SELECT E.EMPNO, E.ENAME, E.JOB, E.MGR, E.HIREDATE, E.SAL, E.COMM, E.DEPTNO FROM EMP E, SALGRADE S WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL AND S.GRADE = 1;
+SELECT * FROM EMP_TEMP;
+
+----------------------------------------------------------------------------------
+-- 데이터 수정하기
+-- 테이블 복사하기
+CREATE TABLE DEPT_TEMP2 AS SELECT * FROM DEPT;
+SELECT * FROM DEPT_TEMP2;
+
+UPDATE DEPT_TEMP2 SET DNAME = 'DATABASE', LOC = 'SEOUL' WHERE DEPTNO = 40; 
+SELECT * FROM DEPT_TEMP2;
+-- 서브쿼리를 사용하여 수정
+UPDATE DEPT_TEMP2 SET (DNAME, LOC) = (SELECT DNAME, LOC FROM DEPT WHERE DEPTNO = 40) WHERE DEPTNO = 40;
+SELECT * FROM DEPT_TEMP2;
+
+UPDATE DEPT_TEMP2 SET DNAME = (SELECT DNAME FROM DEPT WHERE DEPTNO = 40), LOC = (SELECT LOC FROM DEPT WHERE DEPTNO = 40) WHERE DEPTNO =40;
+SELECT * FROM DEPT_TEMP2;
+
+UPDATE DEPT_TEMP2 SET LOC = 'SEOUL' WHERE DEPTNO = (SELECT DEPTNO FROM DEPT_TEMP2 WHERE DNAME = 'OPERATIONS');
+SELECT * FROM DEPT_TEMP2 WHERE DEPTNO = 40;
+SELECT * FROM DEPT_TEMP2;
+
+----------------------------------------------------------------------------------
+-- 데이터 삭제하기
+-- 테이블 복사하기
+CREATE TABLE EMP_TEMP2 AS SELECT *FROM EMP;
+SELECT * FROM EMP_TEMP2;
+
+DELETE FROM EMP_TEMP2 WHERE JOB = 'MANAGER';
+SELECT * FROM EMP_TEMP2;
+
+DELETE FROM EMP_TEMP2 WHERE EMPNO IN(SELECT E.EMPNO FROM EMP_TEMP2 E, SALGRADE S WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL AND S.GRADE = 3 AND DEPTNO = 30);
+SELECT * FROM EMP_TEMP2;
+
+DELETE FROM EMP_TEMP2;
+SELECT * FROM EMP_TEMP2;
+ROLLBACK;
+
+----------------------------------------------------------------------------------
+-- P287 문제 풀이
+CREATE TABLE CHAP10HW_EMP AS SELECT * FROM EMP;
+CREATE TABLE CHAP10HW_DEPT AS SELECT * FROM DEPT;
+CREATE TABLE CHAP10HW_SALGRADE AS SELECT * FROM SALGRADE;
+
+-- 1번문제
+SELECT * FROM CHAP10HW_DEPT;
+INSERT INTO CHAP10HW_DEPT (DEPTNO, DNAME, LOC) VALUES (50, 'ORACLE', 'BUSAN');
+INSERT INTO CHAP10HW_DEPT (DEPTNO, DNAME, LOC) VALUES (60, 'SQL', 'ILSAN');
+INSERT INTO CHAP10HW_DEPT (DEPTNO, DNAME, LOC) VALUES (70, 'SELECT', 'INCHEON');
+INSERT INTO CHAP10HW_DEPT (DEPTNO, DNAME, LOC) VALUES (80, 'DML', 'BUNDANG');
+SELECT * FROM CHAP10HW_DEPT;
+
+-- 2번문제
+SELECT * FROM CHAP10HW_EMP;
+INSERT INTO CHAP10HW_EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (7201, 'TEST_USER1', 'MANAGER', 7788, '2016-01-02', 4500, NULL, 50);
+INSERT INTO CHAP10HW_EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (7202, 'TEST_USER2', 'CLERK', 7201, '2016-02-21', 1800, NULL, 50);
+INSERT INTO CHAP10HW_EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (7203, 'TEST_USER3', 'ANALYST', 7201, '2016-04-11', 3400, NULL, 60);
+INSERT INTO CHAP10HW_EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (7204, 'TEST_USER4', 'SALESMAN', 7201, '2016-05-31', 2700, 300, 60);
+INSERT INTO CHAP10HW_EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (7205, 'TEST_USER5', 'CLERK', 7201, '2016-07-20', 2600, NULL, 70);
+INSERT INTO CHAP10HW_EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (7206, 'TEST_USER6', 'CLERK', 7201, '2016-09-08', 2600, NULL, 70);
+INSERT INTO CHAP10HW_EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (7207, 'TEST_USER7', 'LECTURER', 7201, '2016-10-28', 2300, NULL, 80);
+INSERT INTO CHAP10HW_EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (7208, 'TEST_USER8', 'STUDENT', 7201, '2018-03-09', 1200, NULL, 80);
+SELECT * FROM CHAP10HW_EMP;
+
+-- 3번문제
+SELECT * FROM CHAP10HW_EMP;
+UPDATE CHAP10HW_EMP SET DEPTNO = 70 WHERE SAL >= 3150;
+SELECT * FROM CHAP10HW_EMP ORDER BY DEPTNO;
+
+-- 4번문제
+SELECT * FROM CHAP10HW_EMP ORDER BY DEPTNO;
+UPDATE CHAP10HW_EMP SET SAL = SAL+(SAL*0.1), DEPTNO = 80 WHERE HIREDATE > '2016-05-31'; 
+SELECT * FROM CHAP10HW_EMP ORDER BY DEPTNO;
+
+-- 5번문제
+SELECT * FROM CHAP10HW_SALGRADE;
+DELETE FROM CHAP10HW_EMP WHERE SAL > 3001;
+SELECT * FROM CHAP10HW_EMP ORDER BY DEPTNO;
+
+----------------------------------------------------------------------------------
+-- EMP_DDL 테이블 생성
+CREATE TABLE EMP_DDL(EMPNO NUMBER(4), ENAME VARCHAR2(10), JOB VARCHAR2(9), MGR NUMBER(4), HIREDATE DATE, SAL NUMBER(7,2), COMM NUMBER(7,2), DEPTNO NUMBER(2));
+-- 만든 테이블 구조 보기
+DESC EMP_DDL; 
+-- DEPT_DDL 테이블 생성
+CREATE TABLE DEPT_DDL AS SELECT * FROM DEPT;
+-- 만든 테이블 구조 보기
+DESC DEPT_DDL;
+-- 일부 데이터만 복사해서 새 테이블 생성
+CREATE TABLE EMP_DDL_30 AS SELECT * FROM EMP WHERE DEPTNO = 30;
+-- 생성한 테이블 보기
+SELECT * FROM EMP_DDL_30;
+-- 데이터 없이 구조만 복사해서 테이블 생성
+CREATE TABLE EMPDEPT_DDL AS SELECT E.EMPNO, E.ENAME, E.JOB, E.MGR, E.HIREDATE, E.SAL, E.COMM, D.DEPTNO, D.DNAME, D.LOC FROM EMP E, DEPT D WHERE 1<>1;
+-- 생성한 테이블 보기
+SELECT * FROM EMPDEPT_DDL;
+
+----------------------------------------------------------------------------------
+-- EMP_ALTER 테이블 생성
+DESC EMP_ALTER;
+CREATE TABLE EMP_ALTER AS SELECT * FROM EMP;
+SELECT * FROM EMP_ALTER;
+-- ALTER을 사용하여 열 추가
+ALTER TABLE EMP_ALTER ADD HP VARCHAR2(20);
+SELECT * FROM EMP_ALTER;
+-- RENAME 열 이름 변경
+ALTER TABLE EMP_ALTER RENAME COLUMN HP TO TEL;
+SELECT * FROM EMP_ALTER;
+-- MODIFY 열 자료형 변경
+ALTER TABLE EMP_ALTER MODIFY EMPNO NUMBER(5);
+DESC EMP_ALTER;
+-- DROP
+ALTER TABLE EMP_ALTER DROP COLUMN TEL;
+SELECT * FROM EMP_ALTER;
+-- RENAME
+RENAME EMP_ALTER TO EMP_RENAME;
+SELECT * FROM EMP_RENAME;
+-- TRUNCATE 테이블의 데이터를 전체삭제(정의어라 ROLLBACK 안됨)
+TRUNCATE TABLE EMP_RENAME;
+SELECT * FROM EMP_RENAME;
+-- DROP을 사용해서 테이블 삭제
+DROP TABLE EMP_RENAME;
+SELECT * FROM EMP_RENAME;
+
+----------------------------------------------------------------------------------
+-- P324 문제풀이
+-- 1번 문제
+CREATE TABLE EMP_HW(EMPNO NUMBER(4), ENAME VARCHAR2(10), JOB VARCHAR2(9), MGR NUMBER(4), HIREDATE DATE, SAL NUMBER(7,2), COMM NUMBER(7,2), DEPTNO NUMBER(2)); 
+DESC EMP_HW;
+
+-- 2번 문제
+ALTER TABLE EMP_HW ADD BIGO VARCHAR2(20);
+DESC EMP_HW;
+SELECT * FROM EMP_HW;
+
+-- 3번 문제
+ALTER TABLE EMP_HW MODIFY BIGO VARCHAR2(30);
+DESC EMP_HW;
+SELECT * FROM EMP_HW;
+
+-- 4번 문제
+ALTER TABLE EMP_HW RENAME COLUMN BIGO TO REMARK;
+DESC EMP_HW;
+SELECT * FROM EMP_HW;
+
+-- 5번 문제
+INSERT INTO EMP_HW(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO FROM EMP;
+SELECT * FROM EMP_HW;
+DESC EMP_HW;
+
+-- 6번 문제
+DROP TABLE EMP_HW;
+SELECT * FROM EMP_HW;
+
+----------------------------------------------------------------------------------
+-- 객체 종류
+SELECT * FROM DICT;
+SELECT * FROM DICTIONARY;
+-- USER 접두어를 가진 데이터 사전
+SELECT TABLE_NAME FROM USER_TABLES;
+-- ALL 접두어를 가진 데이터 사전
+SELECT OWNER, TABLE_NAME FROM ALL_TABLES;
+-- DBA 접두어를 가진 데이터 사전DMS SCOTT 계정으로는 조회 불가능
+
+----------------------------------------------------------------------------------
+-- SCOTT 계정으로 접속한 인덱스 정보
+SELECT * FROM USER_INDEXES;
+SELECT * FROM USER_IND_COLUMNS;
+
+-- EMP 테이블의 SAL 열에 인덱스 생성
+CREATE INDEX IDX_EMP_SAL ON EMP(SAL);
+SELECT * FROM USER_IND_COLUMNS;
+
+-- 인덱스 삭제
+DROP INDEX IDX_EMP_SAL;
+SELECT * FROM USER_IND_COLUMNS;
+
+----------------------------------------------------------------------------------
+-- VIEW
+CREATE VIEW VM_EMP20 AS (SELECT EMPNO, ENAME, JOB, DEPTNO FROM EMP WHERE DEPTNO = 20);
+SELECT * FROM USER_VIEWS;
+SELECT * FROM VM_EMP20;
+DROP VIEW VM_EMP20;
+
+-- ROWNUM
+SELECT ROWNUM, E.* FROM EMP E ORDER BY SAL DESC;
+SELECT ROWNUM, E.* FROM (SELECT * FROM EMP E ORDER BY SAL DESC) E;
+WITH E AS (SELECT * FROM EMP ORDER BY SAL DESC) SELECT ROWNUM, E.* FROM E;
+-- TOP-N 추출하기 (서브쿼리, WITH절 사용)
+SELECT ROWNUM, E.* FROM (SELECT * FROM EMP E ORDER BY SAL DESC) E WHERE ROWNUM <=3;
+WITH E AS (SELECT * FROM EMP ORDER BY SAL DESC) SELECT ROWNUM, E.* FROM E WHERE ROWNUM <=3;
+
+----------------------------------------------------------------------------------
+-- 시퀀스 생성
+SELECT * FROM DEPT;
+CREATE TABLE DEPT_SEQUENCE AS SELECT * FROM DEPT WHERE 1 <> 1;
+SELECT * FROM DEPT_SEQUENCE;
+CREATE SEQUENCE SEQ_DEPT_SEQUENCE INCREMENT BY 10 START WITH 10 MAXVALUE 90 MINVALUE 0 NOCYCLE CACHE 2;
+SELECT * FROM USER_SEQUENCES;
+
+INSERT INTO DEPT_SEQUENCE (DEPTNO, DNAME, LOC) VALUES (SEQ_DEPT_SEQUENCE.NEXTVAL, 'DATABASE', 'SEOUL');
+SELECT * FROM DEPT_SEQUENCE ORDER BY DEPTNO;
+
+SELECT SEQ_DEPT_SEQUENCE.CURRVAL FROM DUAL;
+
+INSERT INTO DEPT_SEQUENCE (DEPTNO, DNAME,LOC) VALUES (SEQ_DEPT_SEQUENCE.NEXTVAL, 'DATABASE', 'SEOUL');
+SELECT * FROM DEPT_SEQUENCE ORDER BY DEPTNO;
+
+-- 시퀀스 수정
+ALTER SEQUENCE SEQ_DEPT_SEQUENCE INCREMENT BY 3 MAXVALUE 99 CYCLE;
+SELECT * FROM USER_SEQUENCES;
+
+INSERT INTO DEPT_SEQUENCE (DEPTNO, DNAME, LOC) VALUES (SEQ_DEPT_SEQUENCE.NEXTVAL, 'DATABASE', 'SEOUL');
+SELECT * FROM DEPT_SEQUENCE ORDER BY DEPTNO;
+
+DROP SEQUENCE SEQ_DEPT_SEQUENCE;
+SELECT * FROM USER_SEQUENCES;
+
+----------------------------------------------------------------------------------
+-- 동의어
+-- EMP 테이블의 동의어 생성하기 (토드)
+CREATE SYNONYM E FOR EMP;
+-- E 테이블의 전체 내용 조회하기 (토드)
+SELECT * FROM E;
+-- 동의어 삭제하기
+DROP SYNONYM E;
+
+----------------------------------------------------------------------------------
+-- P357 문제 풀이
+-- 1번 문제
+CREATE TABLE EMPIDX AS SELECT * FROM EMP;
+CREATE INDEX IDX_EMPIDX_EMPNO ON EMPIDX(EMPNO);
+SELECT * FROM USER_INDEXES WHERE INDEX_NAME = 'IDX_EMPIDX_EMPNO';
+
+SELECT * FROM EMPIDX;
+CREATE TABLE EMPIDX AS SELECT * FROM EMP;
+
+-- SELECT * FROM EMP;
+-- DROP TABLE EMPNO;
+-- SELECT * FROM USER_TABLES;
+-- SELECT * FROM USER_IND_COLUMNS;
+
+-- 2번 문제
+CREATE OR REPLACE VIEW EMPIDX_OVER15K AS(SELECT EMPNO, ENAME, JOB, DEPTNO, SAL, NVL2(COMM,'O','X') AS COMM FROM EMPIDX WHERE SAL>1500);
+SELECT * FROM EMPIDX_OVER15K;
+
+-- 3번 문제
+
+----------------------------------------------------------------------------------
+-- NOT NULL
+CREATE TABLE TABLE_NOTNULL(LOGIN_ID VARCHAR2(20) NOT NULL, LOGIN_PW VARCHAR2(20) NOT NULL, TEL VARCHAR(20));
+DESC TABLE_NOTNULL;
+INSERT INTO TABLE_NOTNULL (LOGIN_ID,LOGIN_PW) VALUES ('TEST_ID_01', '1234');
+SELECT * FROM TABLE_NOTNULL;
+
+-- NOT NULL 지정된 열 데이터 NULL값으로 업데이트
+-- UPDATE TABLE_NOTNULL SET LOGIN_PWD = NULL, WHERE LOGIN_ID = 'TEST_ID_01';
+
+-- 제약조건 살펴보기
+SELECT * FROM USER_CONSTRAINTS;
+
+-- 제약 조건 이름 지정
+CREATE TABLE TABLE_NOTNULL2(LOGIN_ID VARCHAR2(20) CONSTRAINT TBLNN2_LGNID_NN NOT NULL, LOGIN_PW VARCHAR2(20) CONSTRAINT TBLNN2_LGNPW_NN NOT NULL, TEL VARCHAR(20));
+SELECT * FROM USER_CONSTRAINTS;
+
+-- 생성되어있던 테이블에 제약 조건 걸기
+ALTER TABLE TABLE_NOTNULL MODIFY(TEL NOT NULL); -- 기존에 위에서 값을 입력안해뒀기 때문에 처리가 안됨 밑에서 테이블 수정 후 다시 실행
+
+UPDATE TABLE_NOTNULL SET TEL = '010-3126-6765' WHERE LOGIN_ID = 'TEST_ID_01';
+SELECT * FROM TABLE_NOTNULL;
+ALTER TABLE TABLE_NOTNULL MODIFY(TEL NOT NULL);
+SELECT * FROM USER_CONSTRAINTS;
+
+ALTER TABLE TABLE_NOTNULL2 MODIFY(TEL CONSTRAINT TBLNN_TEL_NN NOT NULL);
+SELECT * FROM USER_CONSTRAINTS;
+DESC TABLE_NOTNULL2;
+
+-- 이미 생성된 제약조건 이름 변경하기
+ALTER TABLE TABLE_NOTNULL2 RENAME CONSTRAINT TBLNN_TEL_NN TO TBLNN2_TEL_NN;
+SELECT * FROM USER_CONSTRAINTS;
+
+-- 제약 조건 삭제하기
+ALTER TABLE TABLE_NOTNULL2 DROP CONSTRAINT TBLNN2_TEL_NN;
+SELECT * FROM USER_CONSTRAINTS;
+
+-- 테이블 생성하며 제약 조건 지정 UNIQUE
+CREATE TABLE TABLE_UNIQUE(LOGIN_ID VARCHAR2(20) UNIQUE, LOGIN_PWD VARCHAR2(20) NOT NULL, TEL VARCHAR2(20));
+DESC TABLE_UNIQUE;
+
+-- 제약 조건 확인
+SELECT OWNER, CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME FROM USER_CONSTRAINTS WHERE TABLE_NAME = 'TABLE_UNIQUE';
+
+-- 중복을 허락하지 않는 유니크
+INSERT INTO TABLE_UNIQUE(LOGIN_ID, LOGIN_PWD, TEL) VALUES ('TEST_ID_01', 'PWD01', '010-1234-5678');
+SELECT * FROM TABLE_UNIQUE;
+INSERT INTO TABLE_UNIQUE(LOGIN_ID, LOGIN_PWD, TEL) VALUES ('TEST_ID_02', 'PWD01', '010-1234-5678');
+INSERT INTO TABLE_UNIQUE(LOGIN_ID, LOGIN_PWD, TEL) VALUES (NULL, 'PWD01', '010-1234-5678');
+UPDATE TABLE_UNIQUE SET LOGIN_ID = 'TEST_ID_01' WHERE LOGIN_ID IS NULL;
+CREATE TABLE TABLE_UNIQUE2 (LOGIN_ID VARCHAR2(20) CONSTRAINT TBLUNQ2_LOGINID_UNQ UNIQUE, LOGIN_PWD VARCHAR2(20) CONSTRAINT TBLUNQ2_LOGINPW_NN NOT NULL, TEL VARCHAR2(20));
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME LIKE 'TABLE_UNIQUE%';
+
+-- 이미 생성한 테이블에 제약 조건 지정
+ALTER TABLE TABLE_UNIQUE MODIFY(TEL UNIQUE); -- 이미 중복키가 있어서 제약 조건 추가 실패
+UPDATE TABLE_UNIQUE SET TEL = NULL;
+SELECT * FROM TABLE_UNIQUE;
+ALTER TABLE TABLE_UNIQUE MODIFY(TEL UNIQUE);
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME LIKE 'TABLE_UNIQUE%';
+-- 제약 조건 이름 직접 지정하기
+ALTER TABLE TABLE_UNIQUE2 MODIFY(TEL CONSTRAINT TBLUNQ_TEL_UNQ UNIQUE);
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME LIKE 'TABLE_UNIQUE%';
+-- 만들어져 있는 제약 조건 이름 수정하기
+ALTER TABLE TABLE_UNIQUE2 RENAME CONSTRAINT TBLUNQ_TEL_UNQ TO TBLUNQ2_TEL_UNQ;
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME LIKE 'TABLE_UNIQUE%';
+-- 제약 조건 삭제
+ALTER TABLE TABLE_UNIQUE2 DROP CONSTRAINT TBLUNQ2_TEL_UNQ;
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME LIKE 'TABLE_UNIQUE%';
+
+-- 유일하게 하나만 있는 값 PK
+CREATE TABLE TABLE_PK(LOGIN_ID VARCHAR2(20) PRIMARY KEY, LOGIN_PWD VARCHAR2(20) NOT NULL, TEL VARCHAR2(20));
+DESC TABLE_PK;
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME LIKE 'TABLE_PK%';
+SELECT * FROM USER_INDEXES WHERE TABLE_NAME LIKE 'TABLE_PK%';
+-- 테이블을 생성하며 제약 조건 이름 직접 지정하기
+CREATE TABLE TABLE_PK2(LOGIN_ID VARCHAR2(20) CONSTRAINT TBLPK2_LGNID_PK PRIMARY KEY, LOGIN_PWD VARCHAR2(20) CONSTRAINT TBLPK2_LGNPW_NN NOT NULL, TEL VARCHAR2(20));
+DESC TABLE_PK2;
+-- PK 제약 조건을 지정한 열 확인
+INSERT INTO TABLE_PK(LOGIN_ID, LOGIN_PWD, TEL) VALUES ('TEST_ID_01', 'PWD02', '010-1234-5678');
+SELECT * FROM TABLE_PK;
+INSERT INTO TABLE_PK(LOGIN_ID, LOGIN_PWD, TEL) VALUES ('TEST_ID_01', 'PWD01', '010-1234-5678');
+INSERT INTO TABLE_PK(LOGIN_ID, LOGIN_PWD, TEL) VALUES (NULL, 'PWD02', '010-1234-5678');
+INSERT INTO TABLE_PK(LOGIN_PWD, TEL) VALUES ('PWD02', '010-1234-5678');
+
+-- 다른 테이블과 관계를 맺는 FK
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME IN ('EMP' , 'DEPT');
+-- FK가 참조하는 열에 존재하지 않는 데이터 입력하기
+INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO) VALUES (0, '홍길동', 'MANAGER', '7788', TO_DATE('2017/04/30', 'YYYY/MM/DD'), 1200, NULL, 50); -- 부모키 없음 오류
+
+-- FK 지정하기
+CREATE TABLE DEPT_FK(DEPTNO NUMBER(2) CONSTRAINT DEPTFK_DEPTNO_PK PRIMARY KEY, DNAME VARCHAR2(14), LOC VARCHAR2(13));
+DESC DEPT_FK;
+
+-- EMP_FK 테이블 생성하기
+CREATE TABLE EMP_FK( EMPNO NUMBER(4) CONSTRAINT EMPFK_EMPNO_PK PRIMARY KEY, ENAME VARCHAR2(10), JOB VARCHAR2(9), MGR NUMBER(4), HIREDATE DATE, SAL NUMBER(7,2), COMM NUMBER(7,2), 
+DEPTNO NUMBER(2) CONSTRAINT EMPFK_DEPTNO_FK REFERENCES DEPT_FK (DEPTNO));
+DESC EMP_FK;
+
+-- EMP_FK 테이블에 데이터 삽입
+INSERT INTO EMP_FK VALUES(9999, 'TEST_NMAME', 'TEST_JOB', NULL, TO_DATE('2001/01/01', 'YYYY/MM/DD'), 3000, NULL, 10); -- 부모키 없음 오류
+
+-- DEPT_FK에 데이터 삽입
+INSERT INTO DEPT_FK VALUES(10, 'TEST_DNAME', 'TEST_LOC');
+SELECT * FROM DEPT_FK;
+
+-- EMP_FK 테이블에 데이터 삽입
+INSERT INTO EMP_FK VALUES(9999, 'TEST_NMAME', 'TEST_JOB', NULL, TO_DATE('2001/01/01', 'YYYY/MM/DD'), 3000, NULL, 10);
+SELECT * FROM EMP_FK;
+
+-- 열 데이터 삭제할때 데이터를 참조하고 있는 데이터도 함께 삭제 OR 참조하는 데이터를 NULL로 수정
+
+-- CHECK
+CREATE TABLE TABLE_CHECK(LOGIN_ID VARCHAR2(20) CONSTRAINT TBLCK_LOGINID_PK PRIMARY KEY, LOGIN_PWD VARCHAR2(20) CONSTRAINT TBLCK_LOGINPW_CK CHECK (LENGTH(LOGIN_PWD) > 3), TEL VARCHAR2(20));
+DESC TABLE_CHECK;
+-- 제약조건에 맞지 않은 예
+INSERT INTO TABLE_CHECK VALUES ('TEST_ID',  '123', 'TEST_PW');
+-- 제약 조건에 맞는 예
+INSERT INTO TABLE_CHECK VALUES ('TEST_ID',  '1234', 'TEST_PW');
+SELECT * FROM TABLE_CHECK;
+-- 제약 조건 확인하기
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME LIKE 'TABLE_CHECK';
+
+-- 기본값을 정하는 DEFAULT
+CREATE TABLE TABLE_DEFAULT(LOGIN_ID VARCHAR2(20) CONSTRAINT TBLCK3_LOGINID_PK PRIMARY KEY, LOGIN_PWD VARCHAR2(20) DEFAULT '1234', TEL VARCHAR2(20));
+DESC TABLE_DEFAULT;
+INSERT INTO TABLE_DEFAULT VALUES('TEST_ID', NULL, '010-1234-4567');
+INSERT INTO TABLE_DEFAULT (LOGIN_ID, TEL) VALUES('TEST_ID2', '010-3126-6765');
+SELECT * FROM TABLE_DEFAULT;
+
+----------------------------------------------------------------------------------
+-- P 394 문제 풀이
+-- 1번 문제
+
+----------------------------------------------------------------------------------
+-- 권한
